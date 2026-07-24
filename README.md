@@ -1,4 +1,4 @@
-# Digital Worker Factory — Chandra
+# Digital Worker Factory
 
 A multi-layered platform for cloud operations automation. This repository contains the
 backend orchestration (Chandra), a FastAPI runtime surface, LangGraph agents, and a
@@ -40,8 +40,15 @@ Run these from the repository root:
 make install        # install Python (and dev) deps
 make db-up          # start Postgres (docker-compose)
 make migrate        # alembic upgrade head
-make run            # run Chandra (LangGraph) locally
 make check          # lint + type + test (quality gate)
+```
+
+Backend (run FastAPI service):
+
+```bash
+uv run fastapi_app.py
+# or, if you prefer the provided CLI
+make run
 ```
 
 Frontend (from `frontend/`):
@@ -49,6 +56,21 @@ Frontend (from `frontend/`):
 ```bash
 cd frontend
 npm install
+npm run dev
+```
+
+Run both services concurrently (example, in two terminals):
+
+Terminal 1 — backend:
+
+```bash
+uv run fastapi_app.py
+```
+
+Terminal 2 — frontend:
+
+```bash
+cd frontend
 npm run dev
 ```
 
