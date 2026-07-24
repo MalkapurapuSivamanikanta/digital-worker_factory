@@ -1,0 +1,96 @@
+services:
+
+  # Local development database. `make db-up` starts only this service.
+  # Credentials match .env.example's POSTGRES_URL default.
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: chandra
+      POSTGRES_PASSWORD: chandra
+      POSTGRES_DB: chandra
+    ports:
+      - "5432:5432"
+    volumes:
+      - chandra-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chandra"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - chandra-network
+
+  backend:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http:54.160.31.20:3000/api/backend}
+    image: chandra-app
+    command: ["uvicorn", "fastapi_app:app", "--host", "0.0.0.0", "--port", "6001"]
+    ports:
+      - "6001:6001"
+    env_file: .env
+    environment:
+      - FRONTEND_URL=${FRONTEND_URL:-http:54.160.31.20:3000}
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http:54.160.31.20:3000/api/backend}
+      # Inside the compose network the database host is the service name.
+      - POSTGRES_URL=${POSTGRES_URL:-postgresql+psycopg://chandra:chandra@postgres:5432/chandra}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - chandra-network
+
+  frontend:
+    image: node:22-alpine
+    working_dir: /app/frontend
+    volumes:
+      - .:/app
+    command: ["npm", "start"]
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http:54.160.31.20:3000/api/backend}
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - chandra-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    environment:
+      - FRONTEND_HOST=${FRONTEND_HOST:-localhost}
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    networks:
+      - chandra-network
+
+  gradio:
+    image: chandra-app
+    command: ["uv", "run", "app.py"]
+    ports:
+      - "7861:7861"
+    env_file: .env
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - chandra-network
+
+networks:
+  chandra-network:
+    driver: bridge
+
+volumes:
+  chandra-pgdata:

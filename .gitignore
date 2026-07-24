@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+node_modules/
+.next/
+out/
+dist/
+build/
+database/
+logs/
+.python-version
+logs.txt
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+aws_executed_files/
+coverage.xml
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Terraform
+iac/**/.terraform/
+iac/**/.terraform.lock.hcl
+iac/**/terraform.tfstate
+iac/**/terraform.tfstate.*
+iac/**/*.tfplan
+iac/**/crash.log
+
+# Eval reports — keep dir, ignore contents
+evals/reports/*
+!evals/reports/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# uv lock — keep it for reproducibility
+# (intentionally NOT ignored)
