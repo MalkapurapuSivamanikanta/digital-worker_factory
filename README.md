@@ -651,20 +651,6 @@ If your change touches another team's path, open a draft PR and tag them. Don't 
 
 ---
 
-## 14. Team
-
-| Person | Role | Workstream |
-|--------|------|-----------|
-| **Maheshwar** | AWS Engineer | AWS infra, IaC, CI |
-| **Siva** | LangGraph Engineer | Graph core, Cost/Performance KRA workers, observability primitives |
-| **Nagendra** | LangGraph Engineer | Security/Compliance KRA workers, eval harness, fixture-replay |
-| **Aishani** | Frontend Engineer | Next.js ops console, onboarding wizard, approval center |
-| **Kshiraja** | Intern | Docs, demo runbook, fixtures, well-scoped starter tickets |
-| **Phani** | PM / LangGraph reviewer | Project lead, escalation, decision authority on Coordination |
-| **PVR** | CEO | Product norms, escalation |
-
----
-
 ## 15. Operating norms
 
 Set by PVR — non-negotiable.
