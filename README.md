@@ -464,8 +464,8 @@ frontend/
 
 ```bash
 # 1. Clone + branch
-git clone https://github.com/phanindraintelligenzit-afk/chandra.git
-cd chandra
+git clone https://github.com/MalkapurapuSivamanikanta/digital-worker_factory.git
+cd digital-worker_factory
 
 # 2. Backend environment
 cp .env.example .env
