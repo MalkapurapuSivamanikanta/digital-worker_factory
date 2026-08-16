@@ -3,7 +3,7 @@
 > **Project context for any agent / engineer / Claude session working in this repo.**
 > Read this file first. It is the canonical entry point.
 
-Chandra is a **multi-layered enterprise AI cloud operations platform** built around
+Digital Cloud Engineer Platform is a **multi-layered enterprise AI cloud operations platform** built around
 an autonomous AWS observation agent. It emits a daily **Cloud Health Briefing**
 across five KRAs (**cost, security, compliance, performance, reliability**), exposes a
 premium Next.js ops console with a HITL approval center, and ships with a FastAPI
