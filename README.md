@@ -126,8 +126,6 @@ After deployment, use the operations dashboard to review observations and genera
 <img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 35 45 AM" src="https://github.com/user-attachments/assets/76673d9c-655e-40cb-8cf5-0d9627b285f1" />
 <img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 36 17 AM" src="https://github.com/user-attachments/assets/b71f96b4-c104-4765-8f5e-bcc5b93da1a6" />
 <img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 36 44 AM" src="https://github.com/user-attachments/assets/373b984a-b4d3-47c8-9713-d573e57edc2e" />
-<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 38 09 AM" src="https://github.com/user-attachments/assets/b7700e3c-5870-40b8-8cbd-68a39a818f58" />
-
 
 Custom KRAs may produce Terraform or code for an action. Review generated files and the proposed changes carefully, and only run them against a disposable sandbox account. An approval is permission for the worker to perform the action; it is not a substitute for reviewing its impact.
 
