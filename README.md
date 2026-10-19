@@ -80,30 +80,59 @@ uv run python fastapi_app.py
 
 The FastAPI backend listens on `http://localhost:6001`.
 
+<img width="1162" height="839" alt="Screenshot 2026-10-19 at 11 07 27 AM" src="https://github.com/user-attachments/assets/042c7094-65e3-4257-bc42-93790808a347" />
+
+
 Start the frontend in a second terminal:
 
 ```bash
 cd frontend
 npm run dev
 ```
+<img width="1147" height="847" alt="Screenshot 2026-10-19 at 11 19 19 AM" src="https://github.com/user-attachments/assets/6efbdd19-5745-47d5-896f-22978aebed22" />
 
 Open [http://localhost:3000](http://localhost:3000). For local development, `npm run build` is not required; use it when you want to check a production build, then run `npm start` to serve that build.
 
 ### Complete Onboarding
 
-1. Enter a worker name and select an avatar.
-2. Choose a model provider and model. Provide the provider's required settings, then continue after the connection check succeeds.
-3. Select the **AWS Cloud Engineer** role.
-4. Enter the AWS region, sandbox account ID, and the dedicated IAM access key and secret key. Continue after the AWS credentials check succeeds. Treat these credentials as secrets; the local backend writes them to `.env`.
-5. Select the supported maturity pathway, `L2`.
-6. Select one or more built-in KRAs, or add a custom KRA with a name and description.
-7. Review the selected scope and deploy the worker.
+1. Enter a worker name and select an avatar.  <img width="1453" height="882" alt="Screenshot 2026-10-19 at 11 18 27 AM" src="https://github.com/user-attachments/assets/095e79d7-e3f1-4273-86dd-10f752ec5e51" />
+ 
+2. Choose a model provider and model. Provide the provider's required settings, then continue after the connection check succeeds. <img width="1428" height="858" alt="Screenshot 2026-10-19 at 11 21 32 AM" src="https://github.com/user-attachments/assets/999e74e4-babd-40c6-9d8d-a925b4d08679" />
+
+3. Select the **AWS Cloud Engineer** role. <img width="1458" height="859" alt="Screenshot 2026-10-19 at 11 22 29 AM" src="https://github.com/user-attachments/assets/53ae6efb-41ce-45fd-b822-1ad3ff1e516f" />
+
+4. Enter the AWS region, sandbox account ID, and the dedicated IAM access key and secret key. Continue after the AWS credentials check succeeds. Treat these credentials as secrets; the local backend writes them to `.env`. <img width="1458" height="859" alt="Screenshot 2026-10-19 at 11 23 43 AM" src="https://github.com/user-attachments/assets/97072162-8847-4dc3-b814-359d5e9f1b1d" />
+
+5. Select the supported maturity pathway, `L2`. <img width="1458" height="859" alt="Screenshot 2026-10-19 at 11 24 53 AM" src="https://github.com/user-attachments/assets/105e076d-d825-4694-a034-7d8e4c572922" />
+
+6. Select one or more built-in KRAs, or add a custom KRA with a name and description.  <img width="1458" height="859" alt="Screenshot 2026-10-19 at 11 26 24 AM" src="https://github.com/user-attachments/assets/195027c0-6058-44be-96e5-ca61758c2a34" />.  <img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 27 19 AM" src="https://github.com/user-attachments/assets/7de70012-808f-460f-8f8a-e0f7c37fe7ec" />
+7. Review the selected scope and deploy the worker. 
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 27 28 AM" src="https://github.com/user-attachments/assets/7995c124-b0f1-4bcf-bbd0-fafeedf3403d" />
+
+
 
 ### Review and Run Actions
 
 After deployment, use the operations dashboard to review observations and generated work. In **Human Approval Center**, inspect each proposed action and its target before approving or rejecting it. Approved work appears in **Worker Action Execution Center**, where you can follow execution logs. If the worker pauses for input, submit the requested information to resume the run. For a failed run, inspect or download its logs before retrying.
 
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 29 17 AM" src="https://github.com/user-attachments/assets/63ee9d70-a179-4cc7-9bf3-3f2cbb9a330f" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 29 25 AM" src="https://github.com/user-attachments/assets/8d5969d9-903b-4ab8-b786-aee104d2958f" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 29 35 AM" src="https://github.com/user-attachments/assets/01b9ee5d-535c-4fe4-bf73-761113d2888a" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 31 22 AM" src="https://github.com/user-attachments/assets/f837cb32-928f-44a2-8318-9a5489a05cad" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 31 48 AM" src="https://github.com/user-attachments/assets/c1c6d967-c23a-4278-8a00-4e0f70f477fe" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 31 56 AM" src="https://github.com/user-attachments/assets/948d2201-3611-463c-895d-8d2a3322bac7" />
+<img width="1458" height="917" alt="Screenshot 2026-10-19 at 11 32 26 AM" src="https://github.com/user-attachments/assets/c673083e-9b26-4663-a7a3-542be938b1d0" />
+<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 34 18 AM" src="https://github.com/user-attachments/assets/2430158a-c120-476e-8c2c-4dc0ff22e5a7" />
+<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 35 45 AM" src="https://github.com/user-attachments/assets/76673d9c-655e-40cb-8cf5-0d9627b285f1" />
+<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 36 17 AM" src="https://github.com/user-attachments/assets/b71f96b4-c104-4765-8f5e-bcc5b93da1a6" />
+<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 36 44 AM" src="https://github.com/user-attachments/assets/373b984a-b4d3-47c8-9713-d573e57edc2e" />
+<img width="1458" height="910" alt="Screenshot 2026-10-19 at 11 38 09 AM" src="https://github.com/user-attachments/assets/b7700e3c-5870-40b8-8cbd-68a39a818f58" />
+
+
 Custom KRAs may produce Terraform or code for an action. Review generated files and the proposed changes carefully, and only run them against a disposable sandbox account. An approval is permission for the worker to perform the action; it is not a substitute for reviewing its impact.
+
+<img width="1051" height="856" alt="Screenshot 2026-10-19 at 11 41 04 AM" src="https://github.com/user-attachments/assets/2c483fa1-6b05-4c1a-ab65-c2dc3751b44c" />
+
 
 ## 2. Platform components
 
