@@ -73,7 +73,7 @@ import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type React
 type Severity = "P1" | "P2" | "P3" | "P4";
 type IncidentStatus = "Resolved" | "Investigating" | "Escalated" | "Monitoring" | "Awaiting Approval";
 type ApprovalState = "Awaiting Review" | "Approved" | "Rejected" | "Escalated" | "Timed Out";
-type EmailStatus = "pending" | "sent" | "viewed" | "approved" | "rejected";
+type EmailStatus = "none" | "pending" | "sent" | "viewed" | "approved" | "rejected";
 
 type OpsEvent = {
   id: string;
@@ -129,6 +129,11 @@ type ApprovalRow = {
   emailStatus: EmailStatus;
   pendingReason: string;
   kraCode: string;
+  resourceId?: string;
+  detectorId?: string;
+  region?: string;
+  action?: string;
+  category?: string;
   steps: string[];
 };
 
@@ -379,6 +384,7 @@ function ApprovalBadge({ state }: { state: ApprovalState }) {
 
 function EmailStatusPill({ status }: { status: EmailStatus }) {
   const tone = {
+    none: "border-white/20 bg-white/[0.06] text-frost",
     pending: "border-amber/45 bg-amber/12 text-amber",
     sent: "border-emerald-300/40 bg-emerald-300/12 text-emerald-300",
     viewed: "border-emerald-300/40 bg-emerald-300/12 text-emerald-300",
@@ -2512,7 +2518,7 @@ export function ChandraExperience() {
             confidence: 90,
             requestedBy: "Detector",
             lockState: "LOCKED",
-            emailStatus: "NONE",
+            emailStatus: "none",
             pendingReason: issue.recommendation,
             kraCode: kraCode,
             resourceId: issue.resource_arn || undefined,

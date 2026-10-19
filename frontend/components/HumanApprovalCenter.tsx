@@ -467,7 +467,7 @@ export function HumanApprovalCenter({
       action: kra.action,
     }));
 
-    const filteredJira = requests.filter(req => {
+    const filteredJira: UnifiedRequest[] = requests.filter(req => {
       if (!req.title) return true;
       return !kraActionNames.has(req.title.toLowerCase().trim());
     }).map(req => ({

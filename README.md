@@ -34,9 +34,9 @@ multi-agent backend that powers the web UI.
 
 ---
 
-## 1. What Chandra is
+## 1. What digital worker is
 
-Chandra is **four cooperating things** under one repository:
+digital worker is **four cooperating things** under one repository:
 
 | # | Surface | Stack | Purpose |
 |---|---------|-------|---------|
@@ -48,6 +48,62 @@ Chandra is **four cooperating things** under one repository:
 The two backends (canonical `src/chandra/` and FastAPI-root `digitalworker_agents/` + `copilot_agents/`) coexist by design — the canonical pipeline is the source of truth for the briefing, the FastAPI surface is the runtime the Next.js console is wired to.
 
 ---
+
+## How to Run Locally
+
+### Prerequisites
+
+- Python 3.12 and [uv](https://docs.astral.sh/uv/)
+- Node.js 20 or later and npm
+- An AWS sandbox account for any workflow that inspects or changes AWS resources
+- Credentials for the model provider you plan to use
+
+Use a dedicated, least-privilege identity in a non-production AWS account. Never use root credentials. The onboarding form sends the AWS access key, secret key, region, and account ID to the local backend, which writes the credentials to the repository's `.env` file. Keep `.env` private, do not commit it, and remove or rotate demo credentials when finished. AWS CLI login does not automatically populate this form.
+
+### Install Dependencies
+
+From the repository root:
+
+```bash
+uv sync
+cd frontend
+npm ci
+```
+
+### Start the Services
+
+Run each service in its own terminal. Start the backend from the repository root:
+
+```bash
+uv run python fastapi_app.py
+```
+
+The FastAPI backend listens on `http://localhost:6001`.
+
+Start the frontend in a second terminal:
+
+```bash
+cd frontend
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). For local development, `npm run build` is not required; use it when you want to check a production build, then run `npm start` to serve that build.
+
+### Complete Onboarding
+
+1. Enter a worker name and select an avatar.
+2. Choose a model provider and model. Provide the provider's required settings, then continue after the connection check succeeds.
+3. Select the **AWS Cloud Engineer** role.
+4. Enter the AWS region, sandbox account ID, and the dedicated IAM access key and secret key. Continue after the AWS credentials check succeeds. Treat these credentials as secrets; the local backend writes them to `.env`.
+5. Select the supported maturity pathway, `L2`.
+6. Select one or more built-in KRAs, or add a custom KRA with a name and description.
+7. Review the selected scope and deploy the worker.
+
+### Review and Run Actions
+
+After deployment, use the operations dashboard to review observations and generated work. In **Human Approval Center**, inspect each proposed action and its target before approving or rejecting it. Approved work appears in **Worker Action Execution Center**, where you can follow execution logs. If the worker pauses for input, submit the requested information to resume the run. For a failed run, inspect or download its logs before retrying.
+
+Custom KRAs may produce Terraform or code for an action. Review generated files and the proposed changes carefully, and only run them against a disposable sandbox account. An approval is permission for the worker to perform the action; it is not a substitute for reviewing its impact.
 
 ## 2. Platform components
 

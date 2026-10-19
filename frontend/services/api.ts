@@ -856,7 +856,8 @@ export type DigitalWorkerStatus =
   | "awaiting_approval"
   | "completed"
   | "failed"
-  | "stopped";
+  | "stopped"
+  | "skipped";
 
 /** One row in the approval-center list (GET /requests). */
 export type DigitalWorkerRequestSummary = {
@@ -880,6 +881,7 @@ export type DigitalWorkerRequestSummary = {
   submitted_at: number | null;
   started_at: number | null;
   completed_at: number | null;
+  action?: string | null;
 };
 
 export type DigitalWorkerListResponse = {

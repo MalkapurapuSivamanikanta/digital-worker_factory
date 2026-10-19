@@ -111,6 +111,38 @@
         "Terraform successfully initialized, validated, planned, and applied the IAM configuration to provision required permissions for Digital Worker execution"
       ],
       "lesson": "Pre-verify that the IAM principal has the required permissions before attempting the action to avoid authorization failures."
+    },
+    {
+      "timestamp": "2026-10-19T12:01:25",
+      "action_name": "Create S3 Bucket in us-east-1",
+      "iterations_used": 4,
+      "final_status": "failed",
+      "errors_encountered": [
+        "create_s3_bucket.sh: line 12: aws: command not found"
+      ],
+      "fixes_applied": [
+        "The pre-flight validation failed because the `terraform` command was not found on the system (`/bin/sh: terraform: command not found`)",
+        "The automation failed during the pre-flight validation phase because the Terraform binary was not found on the system (`/bin/sh: terraform: command not found`)",
+        "The pre-flight validation failed because Terraform is not installed on the execution environment; the `/bin/sh: terraform: command not found` error prevented any infrastructure from being provisioned",
+        "The S3 bucket creation script failed because the AWS CLI is not installed or not in the system PATH"
+      ],
+      "lesson": "Ensure AWS CLI is installed and available in PATH before running scripts that depend on aws commands."
+    },
+    {
+      "timestamp": "2026-10-19T12:28:32",
+      "action_name": "Create Default S3 Bucket in us-east-1",
+      "iterations_used": 4,
+      "final_status": "failed",
+      "errors_encountered": [
+        "terraform init failed:"
+      ],
+      "fixes_applied": [
+        "The automation failed during pre-flight validation because Terraform is not installed on the execution environment",
+        "The automation failed to create the default S3 bucket `my-default-bucket-20261019122215-9f009da2` in us-east-1 due to an AccessDenied error",
+        "The automation failed during pre-flight validation because Terraform is not installed in the execution environment",
+        "The automation failed during the pre-flight validation phase because the Terraform command was not found on the system (`/bin/sh: terraform: command not found`)"
+      ],
+      "lesson": "Ensure Terraform is installed and available in the system's PATH before executing any terraform commands."
     }
   ]
 }
